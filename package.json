@@ -7,10 +7,7 @@
     "runner": "cypress open --e2e --browser chrome",
     "run": "cypress run"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Red-Kraken42/DevsuCypressAutomation.git"
-  },
+  
   "keywords": [
     "tests",
     "cypress",

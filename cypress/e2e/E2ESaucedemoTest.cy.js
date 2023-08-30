@@ -31,7 +31,6 @@ describe('E2E Test', () => {
           const itemPriceNumber = parseFloat(itemPriceText.replace('$', ''));
           totalSum += itemPriceNumber;
         }).then(() => {
-          
           resolve(totalSum);
         });
       });
@@ -51,11 +50,12 @@ describe('E2E Test', () => {
         })
       })
     }
-
     calculateTotalSum().then((totalSum) => {
       extractSubtotalNumber().then((subtotalPrice) => {
         expect(totalSum).to.be.equal(subtotalPrice)
       })
     });
+    //validate confirmation message
+    
   })
 })
