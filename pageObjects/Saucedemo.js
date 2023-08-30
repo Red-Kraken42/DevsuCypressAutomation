@@ -6,6 +6,7 @@ class Saucedemo {
     btn = 'button'
     cartItem = 'div.cart_item'
     itemName = '.inventory_item_name'
+    itemDescription = '.inventory_item_description'
     // cartItemNames = 'div.cart_item'.locator('.inventory_item_name')
     fistNameField = 'input[data-test="firstName"]'
     lastNameField = 'input[data-test="lastName"]'
