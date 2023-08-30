@@ -55,7 +55,11 @@ describe('E2E Test', () => {
         expect(totalSum).to.be.equal(subtotalPrice)
       })
     });
+    cy.clickBtnByText('Finish')
     //validate confirmation message
-    
+    const headerConfirmationMessage = "Thank you for your order!"
+    const completeConfirmationMessage = "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+    cy.get('h2.complete-header').should('have.text',headerConfirmationMessage);
+    cy.get('div.complete-text').should('have.text',completeConfirmationMessage);
   })
 })
