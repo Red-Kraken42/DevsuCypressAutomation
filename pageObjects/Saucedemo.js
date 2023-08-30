@@ -17,6 +17,11 @@ class Saucedemo {
     headerConfirmationMsg = 'h2.complete-header'
     completeConfirmationMsg = 'div.complete-text'
 
+    productNames = [
+        "Sauce Labs Backpack",
+        "Sauce Labs Onesie",
+      ]
+
     // Login Page:
     visitLoginPage() {
         cy.visit('https://www.saucedemo.com/');
@@ -26,6 +31,17 @@ class Saucedemo {
         cy.get(this.passwordField).type(password);
         cy.get(this.loginBtn).click();
     }
+    // Inventory Page:
+    addItemsToCartByList(productNames){
+        productNames.forEach((productName) => {
+            cy.get('.inventory_item_name')
+               .contains(productName)
+               .parents('.inventory_item_description')
+               .find('.btn')
+               .click();
+           });
+    }
+
 }
 
 export const Sauce = new Saucedemo()
