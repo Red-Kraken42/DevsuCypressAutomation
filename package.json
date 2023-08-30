@@ -1,0 +1,29 @@
+{
+  "name": "devsucypressautomation",
+  "version": "1.0.0",
+  "description": "e2e tests with cypress",
+  "main": "index.js",
+  "scripts": {
+    "runner": "cypress open --e2e --browser chrome",
+    "run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Red-Kraken42/DevsuCypressAutomation.git"
+  },
+  "keywords": [
+    "tests",
+    "cypress",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Ricardo Osegueda Alas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Red-Kraken42/DevsuCypressAutomation/issues"
+  },
+  "homepage": "https://github.com/Red-Kraken42/DevsuCypressAutomation#readme",
+  "devDependencies": {
+    "cypress": "^13.0.0"
+  }
+}
