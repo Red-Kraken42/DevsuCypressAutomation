@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-08-30T21:52:41.695Z",
+    "end": "2023-08-30T21:52:46.256Z",
+    "duration": 4561,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3659c965-c8f3-4a5b-bbb2-32183b0452aa",
+      "title": "",
+      "fullFile": "cypress\\e2e\\E2ESaucedemoTest.cy.js",
+      "file": "cypress\\e2e\\E2ESaucedemoTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e247c55e-2c06-4912-a1f0-7201e5e7a99c",
+          "title": "E2E Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login, Add two products, Checkout and Validations",
+              "fullTitle": "E2E Test Login, Add two products, Checkout and Validations",
+              "timedOut": null,
+              "duration": 3046,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// login success\n_Saucedemo.Sauce.visitLoginPage();\n_Saucedemo.Sauce.submitLoginSucessful('standard_user', 'secret_sauce');\ncy.url().should(url => {\n  expect(url).to.contains('/inventory.html');\n});\n// Add two products\n_Saucedemo.Sauce.addItemsToCartByList(_Saucedemo.Sauce.productNames);\ncy.get('a.shopping_cart_link').should('have.text', 2);\n//check cart information\ncy.get('a.shopping_cart_link').click();\ncy.get('.inventory_item_name').each($element => {\n  expect(_Saucedemo.Sauce.productNames).to.include($element.text());\n});\n//Check out part one\ncy.clickBtnByText('Checkout');\ncy.get(_Saucedemo.Sauce.fistNameField).type(\"Ricardo\");\ncy.get(_Saucedemo.Sauce.lastNameField).type(\"Osegueda\");\ncy.get(_Saucedemo.Sauce.zipPostalCodeField).type(\"CP 1502\");\ncy.get(_Saucedemo.Sauce.continueBtn).click();\n//Check out part two\nfunction calculateTotalSum() {\n  return new Cypress.Promise(resolve => {\n    let totalSum = 0;\n    cy.get(_Saucedemo.Sauce.inventoryItemPrices).each($element => {\n      const itemPriceText = $element.text();\n      const itemPriceNumber = parseFloat(itemPriceText.replace('$', ''));\n      totalSum += itemPriceNumber;\n    }).then(() => {\n      resolve(totalSum);\n    });\n  });\n}\nfunction extractSubtotalNumber() {\n  return new Cypress.Promise(resolve => {\n    cy.get(_Saucedemo.Sauce.subtotalPrice).invoke('text').then(subtotalText => {\n      const regex = /\\d+\\.\\d+/;\n      const matches = subtotalText.match(regex);\n      if (matches && matches.length > 0) {\n        const firstMatch = parseFloat(matches[0]);\n        resolve(firstMatch);\n      } else {\n        resolve(null);\n      }\n    });\n  });\n}\ncalculateTotalSum().then(totalSum => {\n  extractSubtotalNumber().then(subtotalPrice => {\n    expect(totalSum).to.be.equal(subtotalPrice);\n  });\n});\ncy.clickBtnByText('Finish');\n//validate confirmation message\nconst headerConfirmationMessage = \"Thank you for your order!\";\nconst completeConfirmationMessage = \"Your order has been dispatched, and will arrive just as fast as the pony can get there!\";\ncy.get('h2.complete-header').should('have.text', headerConfirmationMessage);\ncy.get('div.complete-text').should('have.text', completeConfirmationMessage);",
+              "err": {},
+              "uuid": "4cf48b67-cae7-4eaa-a350-3874a33a66a9",
+              "parentUUID": "e247c55e-2c06-4912-a1f0-7201e5e7a99c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4cf48b67-cae7-4eaa-a350-3874a33a66a9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3046,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": true,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
