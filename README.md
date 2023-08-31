@@ -53,6 +53,6 @@ Esto iniciará las pruebas automatizadas según lo configurado en cypress.config
 
 ### Paso 5: Ver los Resultados
 
-Después de ejecutar las pruebas, podrás ver los resultados en la carpeta: cypress\results abriendo el archivo: mochawesome.html  
+Después de ejecutar las pruebas, podrás ver los resultados en la carpeta: cypress\reports\html\ abriendo el archivo: index.html  
 o ejecutando el comando: 
-    start cypress/results/mochawesome.html
+    start cypress\reports\html\index.html 
