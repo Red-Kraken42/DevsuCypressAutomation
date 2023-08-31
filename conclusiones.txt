@@ -1,0 +1,7 @@
+Hallazgos:
+
+- Se utiliza una prueba con cypress para automatizar el flujo de compra de 2 productos en un sitio web.
+
+Conclusiones:
+
+Consideraciones:

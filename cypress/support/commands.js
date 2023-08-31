@@ -13,8 +13,7 @@
 // Cypress.Commands.add('login', (email, password) => { ... })
     Cypress.Commands.add("clickBtnByText",(btnName)=>{
         cy.get('button').contains(btnName).click()
-    }
-    )
+    })
 //
 //
 // -- This is a child command --

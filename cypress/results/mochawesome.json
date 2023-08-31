@@ -5,9 +5,9 @@
     "passes": 1,
     "pending": 0,
     "failures": 0,
-    "start": "2023-08-30T21:52:41.695Z",
-    "end": "2023-08-30T21:52:46.256Z",
-    "duration": 4561,
+    "start": "2023-08-31T15:36:01.946Z",
+    "end": "2023-08-31T15:36:06.539Z",
+    "duration": 4593,
     "testsRegistered": 1,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "3659c965-c8f3-4a5b-bbb2-32183b0452aa",
+      "uuid": "5b6165f3-351a-4fdd-8541-eb9b03b46df0",
       "title": "",
       "fullFile": "cypress\\e2e\\E2ESaucedemoTest.cy.js",
       "file": "cypress\\e2e\\E2ESaucedemoTest.cy.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e247c55e-2c06-4912-a1f0-7201e5e7a99c",
+          "uuid": "9d22d354-5b7f-44fc-8235-072f8c1ebf05",
           "title": "E2E Test",
           "fullFile": "",
           "file": "",
@@ -38,29 +38,29 @@
               "title": "Login, Add two products, Checkout and Validations",
               "fullTitle": "E2E Test Login, Add two products, Checkout and Validations",
               "timedOut": null,
-              "duration": 3046,
+              "duration": 3020,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "// login success\n_Saucedemo.Sauce.visitLoginPage();\n_Saucedemo.Sauce.submitLoginSucessful('standard_user', 'secret_sauce');\ncy.url().should(url => {\n  expect(url).to.contains('/inventory.html');\n});\n// Add two products\n_Saucedemo.Sauce.addItemsToCartByList(_Saucedemo.Sauce.productNames);\ncy.get('a.shopping_cart_link').should('have.text', 2);\n//check cart information\ncy.get('a.shopping_cart_link').click();\ncy.get('.inventory_item_name').each($element => {\n  expect(_Saucedemo.Sauce.productNames).to.include($element.text());\n});\n//Check out part one\ncy.clickBtnByText('Checkout');\ncy.get(_Saucedemo.Sauce.fistNameField).type(\"Ricardo\");\ncy.get(_Saucedemo.Sauce.lastNameField).type(\"Osegueda\");\ncy.get(_Saucedemo.Sauce.zipPostalCodeField).type(\"CP 1502\");\ncy.get(_Saucedemo.Sauce.continueBtn).click();\n//Check out part two\nfunction calculateTotalSum() {\n  return new Cypress.Promise(resolve => {\n    let totalSum = 0;\n    cy.get(_Saucedemo.Sauce.inventoryItemPrices).each($element => {\n      const itemPriceText = $element.text();\n      const itemPriceNumber = parseFloat(itemPriceText.replace('$', ''));\n      totalSum += itemPriceNumber;\n    }).then(() => {\n      resolve(totalSum);\n    });\n  });\n}\nfunction extractSubtotalNumber() {\n  return new Cypress.Promise(resolve => {\n    cy.get(_Saucedemo.Sauce.subtotalPrice).invoke('text').then(subtotalText => {\n      const regex = /\\d+\\.\\d+/;\n      const matches = subtotalText.match(regex);\n      if (matches && matches.length > 0) {\n        const firstMatch = parseFloat(matches[0]);\n        resolve(firstMatch);\n      } else {\n        resolve(null);\n      }\n    });\n  });\n}\ncalculateTotalSum().then(totalSum => {\n  extractSubtotalNumber().then(subtotalPrice => {\n    expect(totalSum).to.be.equal(subtotalPrice);\n  });\n});\ncy.clickBtnByText('Finish');\n//validate confirmation message\nconst headerConfirmationMessage = \"Thank you for your order!\";\nconst completeConfirmationMessage = \"Your order has been dispatched, and will arrive just as fast as the pony can get there!\";\ncy.get('h2.complete-header').should('have.text', headerConfirmationMessage);\ncy.get('div.complete-text').should('have.text', completeConfirmationMessage);",
+              "code": "// login success\n_Saucedemo.Sauce.visitLoginPage();\n_Saucedemo.Sauce.submitLoginSucessful('standard_user', 'secret_sauce');\ncy.url().should(url => {\n  expect(url).to.contains('/inventory.html');\n});\n// Add two products\n_Saucedemo.Sauce.addItemsToCartByList(_Saucedemo.Sauce.productNames);\ncy.get('a.shopping_cart_link').should('have.text', 2);\n//check cart information\ncy.get('a.shopping_cart_link').click();\ncy.get('.inventory_item_name').each($element => {\n  expect(_Saucedemo.Sauce.productNames).to.include($element.text());\n});\n//Check out part one\ncy.clickBtnByText('Checkout');\n_Saucedemo.Sauce.fillCheckOutInformation(\"Ricardo\", \"Osegueda\", \"CP 1502\");\n//Check out part two\n_Saucedemo.Sauce.calculateTotalSum().then(totalSum => {\n  _Saucedemo.Sauce.extractSubtotalNumber().then(subtotalPrice => {\n    expect(totalSum).to.be.equal(subtotalPrice);\n  });\n});\ncy.clickBtnByText('Finish');\n//validate confirmation message\nconst headerConfirmationMessage = \"Thank you for your order!\";\nconst completeConfirmationMessage = \"Your order has been dispatched, and will arrive just as fast as the pony can get there!\";\ncy.get(_Saucedemo.Sauce.headerConfirmationMsg).should('have.text', headerConfirmationMessage);\ncy.get(_Saucedemo.Sauce.completeConfirmationMsg).should('have.text', completeConfirmationMessage);",
               "err": {},
-              "uuid": "4cf48b67-cae7-4eaa-a350-3874a33a66a9",
-              "parentUUID": "e247c55e-2c06-4912-a1f0-7201e5e7a99c",
+              "uuid": "c5f4370f-0f5e-4ce0-93bf-3b23d95145d4",
+              "parentUUID": "9d22d354-5b7f-44fc-8235-072f8c1ebf05",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "4cf48b67-cae7-4eaa-a350-3874a33a66a9"
+            "c5f4370f-0f5e-4ce0-93bf-3b23d95145d4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 3046,
+          "duration": 3020,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
