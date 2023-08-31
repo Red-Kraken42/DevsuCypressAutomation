@@ -37,12 +37,17 @@ Ahora puedes ejecutar las pruebas del proyecto de cypress utilizando el siguient
 
     npx cypress run
 o puedes ejecutar algun script del package.json:
-    Para abrir la interfaz de usuario de Cypress en un navegador Chrome: 
-        npm run cy:open
-    Para ejecutar solamente las pruebas api:
-        npm run cy:api
-    Para ejecutar solamente la prueba E2E:
-        npm run cy:e2e
+Para abrir la interfaz de usuario de Cypress en un navegador Chrome: 
+    
+    npm run cy:open
+    
+Para ejecutar solamente las pruebas api:
+    
+    npm run cy:api
+    
+Para ejecutar solamente la prueba E2E:
+    
+    npm run cy:e2e
     
 Esto iniciará las pruebas automatizadas según lo configurado en cypress.config.js
 
