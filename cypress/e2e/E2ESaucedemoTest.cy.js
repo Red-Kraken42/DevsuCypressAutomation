@@ -2,8 +2,6 @@ import { Sauce } from '../../pageObjects/Saucedemo';
 import loginCredentials from '../fixtures/loginCredentials.json';
 import { Constants } from '../support/Constants';
 
-
-
 describe('E2E Test', () => {
   it('Login, Add two products, Checkout and Validations', () => {
     // login success

@@ -31,7 +31,6 @@ const user = [
 ]
 
 describe('API Tests', () => {
-
   it('Create a user', () => {
     cy.log(numericValue)
     cy.request('POST', `https://petstore.swagger.io/v2/user/createWithArray`, user)

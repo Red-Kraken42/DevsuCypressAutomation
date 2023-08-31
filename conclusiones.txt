@@ -1,7 +1,19 @@
 Hallazgos:
 
-- Se utiliza una prueba con cypress para automatizar el flujo de compra de 2 productos en un sitio web.
+- Se utiliza una sola prueba con cypress para automatizar el flujo de compra de 2 productos en un sitio web.
+- De acuerdo a las pruebas, no es posible agregar mas de un producto utilizando el boton "ADD to cart"
+- En algunas pocas ocasiones el sitio "https://www.saucedemo.com/" suele fallar
+- Al ser una pagina de pruebas no existen mayores validaciones en la misma
+- Se usa un bucle for...of para agregar productos al carrito de compras. Esto es eficiente y facilita la adición de nuevos productos en el futuro.
+- las pruebas y funciones de api se realizaron en un solo archivo apiTests.spec.js, para una mayor comprension
+    - Se genero un valor dinamico compuesto por el año+mes+dia+hora+min+segundo
+    - Esto con el objetivo de tener un username nuevo siempre
 
 Conclusiones:
 
-Consideraciones:
+- El código de prueba funciona correctamente para el flujo de compra de dos productos en el sitio web de Saucedemo.
+- Se siguen buenas prácticas al utilizar constantes para valores que podrían cambiar en el futuro, lo que facilita la actualización de las pruebas.
+- La abstracción de la clase Saucedemo es útil para organizar y reutilizar el código relacionado con la página web.
+- Se manejan aspectos de inicio de sesión, navegación por la página, agregar productos al carrito y el proceso de pago.
+- Cypress permite la ejecucion de pruebas API por lo que se realizo como parte del mismo proyecto
+- Para las pruebas de UI se selecciono la Opcion 2, para las pruebas de API se selecciono la Opcion 3
