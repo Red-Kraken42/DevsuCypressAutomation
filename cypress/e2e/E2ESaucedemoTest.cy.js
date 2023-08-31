@@ -1,4 +1,4 @@
-import { Sauce } from '../../pageObjects/Saucedemo';
+import { Sauce } from '../pageObjects/Saucedemo';
 import loginCredentials from '../fixtures/loginCredentials.json';
 import { Constants } from '../support/Constants';
 
