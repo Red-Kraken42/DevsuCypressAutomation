@@ -9,8 +9,13 @@ class Saucedemo {
             "Sauce Labs Onesie",
         ];
 
-        this.expectedHeaderConfirmationMessage = "Thank you for your order!"
-        this.expectedCompleteConfirmationMessage = "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+        this.expectedMessages = {
+            headerConfirmation: "Thank you for your order!",
+            completeConfirmation: "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+        }
+
+        // this.expectedHeaderConfirmationMessage = "Thank you for your order!"
+        // this.expectedCompleteConfirmationMessage = "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
         this.usernameField = 'input[data-test="username"]';
         this.passwordField = 'input[data-test="password"]';
         this.loginBtn = 'input[data-test="login-button"]';
