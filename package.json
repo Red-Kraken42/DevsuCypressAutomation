@@ -7,7 +7,7 @@
     "cy:open": "cypress open --e2e --browser chrome",
     "cy:run": "cypress run",
     "cy:api": "cypress run --spec cypress/e2e/apiTests.cy.js",
-    "cy:e2e": "cypress run --spec cypress/e2e/E2ESaucedemoTest.cy.js"
+    "cy:e2e": "cypress run --spec cypress/e2e/E2ESaucedemoTest.cy.js --headed"
   },
   "keywords": [
     "tests",

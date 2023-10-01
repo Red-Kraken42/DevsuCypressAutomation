@@ -31,5 +31,6 @@ describe('E2E Test', () => {
     //validate confirmation message
     cy.get(Sauce.headerConfirmationMsg).should(Constants.HAVE_TEXT, Sauce.expectedHeaderConfirmationMessage);
     cy.get(Sauce.completeConfirmationMsg).should(Constants.HAVE_TEXT, Sauce.expectedCompleteConfirmationMessage);
+    
   })
 })

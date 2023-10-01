@@ -36,6 +36,7 @@ Este comando instalará todas las bibliotecas y módulos necesarios para ejecuta
 Ahora puedes ejecutar las pruebas del proyecto de cypress utilizando el siguiente comando:
 
     npx cypress run
+    
 o puedes ejecutar algun script del package.json:
 Para abrir la interfaz de usuario de Cypress en un navegador Chrome: 
     

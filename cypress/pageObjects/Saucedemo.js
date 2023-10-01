@@ -1,32 +1,40 @@
 class Saucedemo {
-    expectedHeaderConfirmationMessage = "Thank you for your order!"
-    expectedCompleteConfirmationMessage = "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
-    usernameField = 'input[data-test="username"]';
-    passwordField = 'input[data-test="password"]';
-    loginBtn = 'input[data-test="login-button"]';
-    shoppingCartIcon = 'a.shopping_cart_link';
-    btn = 'button'
-    text = 'text'
-    cartItem = 'div.cart_item'
-    itemName = '.inventory_item_name'
-    itemDescription = '.inventory_item_description'
-    fistNameField = 'input[data-test="firstName"]'
-    lastNameField = 'input[data-test="lastName"]'
-    zipPostalCodeField = 'input[data-test="postalCode"]'
-    continueBtn = 'input[data-test="continue"]'
-    inventoryItemPrices = 'div.inventory_item_price'
-    subtotalPrice = 'div.summary_subtotal_label'
-    headerConfirmationMsg = 'h2.complete-header'
-    completeConfirmationMsg = 'div.complete-text'
 
-    productNames = [
-        "Sauce Labs Backpack",
-        "Sauce Labs Onesie",
-    ]
+    constructor() {
+        this.urls = {
+            saucedemo: 'https://www.saucedemo.com/',
+        };
+        this.productNames = [
+            "Sauce Labs Backpack",
+            "Sauce Labs Onesie",
+        ];
+
+        this.expectedHeaderConfirmationMessage = "Thank you for your order!"
+        this.expectedCompleteConfirmationMessage = "Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+        this.usernameField = 'input[data-test="username"]';
+        this.passwordField = 'input[data-test="password"]';
+        this.loginBtn = 'input[data-test="login-button"]';
+        this.shoppingCartIcon = 'a.shopping_cart_link';
+        this.btn = 'button'
+        this.text = 'text'
+        this.cartItem = 'div.cart_item'
+        this.itemName = '.inventory_item_name'
+        this.itemDescription = '.inventory_item_description'
+        this.fistNameField = 'input[data-test="firstName"]'
+        this.lastNameField = 'input[data-test="lastName"]'
+        this.zipPostalCodeField = 'input[data-test="postalCode"]'
+        this.continueBtn = 'input[data-test="continue"]'
+        this.inventoryItemPrices = 'div.inventory_item_price'
+        this.subtotalPrice = 'div.summary_subtotal_label'
+        this.headerConfirmationMsg = 'h2.complete-header'
+        this.completeConfirmationMsg = 'div.complete-text'
+
+    }
 
     // Login Page:
     visitLoginPage() {
-        cy.visit('https://www.saucedemo.com/');
+        cy.visit(this.urls.saucedemo);
+
     }
     submitLoginSucessful(username, password) {
         cy.get(this.usernameField).type(username);
